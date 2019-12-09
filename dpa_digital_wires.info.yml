@@ -1,0 +1,7 @@
+name: 'dpa Digital Wires'
+type: module
+description: 'Importer for dpa''s Digital Wires via WireQ'
+core: 8.x
+package: 'dpa'
+dependencies:
+  - migrate

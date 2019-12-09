@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains dpa_digital_wires.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function dpa_digital_wires_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the dpa_digital_wires module.
+    case 'help.page.dpa_digital_wires':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Importer for dpa&#039;&#039;s Digital Wires via WireQ') . '</p>';
+      return $output;
+
+    default:
+  }
+}
