@@ -1,0 +1,6 @@
+dpa_digital_wires.settings_form:
+  title: 'dpa Digital Wires Import Settings'
+  route_name: dpa_digital_wires.settings_form
+  description: 'dpa Digital Wires Import Settings'
+  parent: system.admin_config_system
+  weight: 99
