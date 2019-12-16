@@ -25,6 +25,9 @@ class WireQAPIConnector {
     $response = \Drupal::httpClient()->get($url);
     return $response;
   }
+
+  public function fetchEndpoint() {
+    return $this->fetchEntries();
   }
 
   /**

@@ -7,3 +7,9 @@ dpa_digital_wires.settings_form:
     _permission: 'access administration pages'
   options:
     _admin_route: TRUE
+dpa_digital_wires.wireq_api_fetch:
+  path: '/dpa/wireq/fetch'
+  defaults:
+    _controller: '\Drupal\dpa_digital_wires\WireQAPIConnector::fetchEndpoint'
+  requirements:
+    _permission: 'access administration pages'
