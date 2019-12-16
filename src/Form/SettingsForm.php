@@ -31,17 +31,15 @@ class SettingsForm extends ConfigFormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
     $config = $this->config('dpa_digital_wires.settings');
-    $form['dpa_api_key'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('dpa API key'),
-      '#description' => $this->t('The API to fetch the available articles from the dpa.'),
-      '#maxlength' => 64,
-      '#size' => 64,
-      '#default_value' => $config->get('dpa_api_key'),
+    $form['wireq_base_url'] = [
+      '#type' => 'textarea',
+      '#title' => $this->t('wireQ base-URL'),
+      '#description' => $this->t('The base-URL for your wireQ feed, which you can activate in the dpa API-Portal.'),
+      '#default_value' => $config->get('wireq_base_url'),
     ];
     $form['publishing_status'] = [
       '#type' => 'radios',
-      '#title' => $this->t('Publishing status for new articles'),
+      '#title' => $this->t('Publishing status'),
       '#description' => $this->t('Select wether new articles should be published automatically.'),
       '#options' => ['Draft' => $this->t('Draft'), 'Published' => $this->t('Published')],
       '#default_value' => 'Draft',
@@ -56,8 +54,8 @@ class SettingsForm extends ConfigFormBase {
     parent::submitForm($form, $form_state);
 
     $this->config('dpa_digital_wires.settings')
-      ->set('dpa_api_key', $form_state->getValue('dpa_api_key'))
-      ->set('publishing_stage', $form_state->getValue('publishing_stage'))
+      ->set('wireq_base_url', $form_state->getValue('wireq_base_url'))
+      ->set('publishing_status', $form_state->getValue('publishing_status'))
       ->save();
   }
 
