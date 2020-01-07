@@ -1,0 +1,19 @@
+uuid: 863ecb70-7f92-4de2-a8af-9d1fa548a8b7
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_kicker
+    - node.type.dpa_meldung
+id: node.dpa_meldung.field_kicker
+field_name: field_kicker
+entity_type: node
+bundle: dpa_meldung
+label: Kicker
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

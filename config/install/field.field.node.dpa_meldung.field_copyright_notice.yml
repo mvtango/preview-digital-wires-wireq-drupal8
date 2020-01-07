@@ -1,0 +1,19 @@
+uuid: 9b3f6025-7e8a-480d-b905-b01f3424ccb3
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_copyright_notice
+    - node.type.dpa_meldung
+id: node.dpa_meldung.field_copyright_notice
+field_name: field_copyright_notice
+entity_type: node
+bundle: dpa_meldung
+label: 'Copyright Notice'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,23 @@
+uuid: 64f8c983-335a-48d4-9371-0f49cb910938
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.dpa_meldung
+  module:
+    - text
+id: node.dpa_meldung.body
+field_name: body
+entity_type: node
+bundle: dpa_meldung
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

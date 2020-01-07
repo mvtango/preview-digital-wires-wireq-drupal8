@@ -1,0 +1,11 @@
+uuid: 71f8e0de-27cf-4591-8ab1-19785ff31892
+langcode: de
+status: true
+dependencies:
+  config:
+    - node.type.dpa_meldung
+id: node.dpa_meldung
+target_entity_type_id: node
+target_bundle: dpa_meldung
+default_langcode: site_default
+language_alterable: false

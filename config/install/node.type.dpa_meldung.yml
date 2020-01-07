@@ -1,0 +1,18 @@
+uuid: 7d76c756-64ec-4476-9a24-4f7135e5fe50
+langcode: de
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'dpa Meldung'
+type: dpa_meldung
+description: 'Eine automatisch importierte Meldung aus dem Digital Wires Feed'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

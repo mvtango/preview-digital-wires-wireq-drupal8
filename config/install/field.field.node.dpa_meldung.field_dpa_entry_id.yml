@@ -1,0 +1,19 @@
+uuid: 3945bbaf-7bde-4021-9b89-c53a97245f1f
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dpa_entry_id
+    - node.type.dpa_meldung
+id: node.dpa_meldung.field_dpa_entry_id
+field_name: field_dpa_entry_id
+entity_type: node
+bundle: dpa_meldung
+label: 'dpa Entry ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

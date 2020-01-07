@@ -1,0 +1,19 @@
+uuid: 766a6363-e23f-4f0b-8106-090b365cc86d
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dateline
+    - node.type.dpa_meldung
+id: node.dpa_meldung.field_dateline
+field_name: field_dateline
+entity_type: node
+bundle: dpa_meldung
+label: Dateline
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
