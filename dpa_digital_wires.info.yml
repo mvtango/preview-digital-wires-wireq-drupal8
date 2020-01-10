@@ -5,3 +5,4 @@ core: 8.x
 package: 'dpa'
 dependencies:
   - migrate
+  - migrate_plus
