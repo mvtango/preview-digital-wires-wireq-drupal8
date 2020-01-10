@@ -4,5 +4,5 @@ description: 'Importer for dpa''s Digital Wires via WireQ'
 core: 8.x
 package: 'dpa'
 dependencies:
-  - migrate
+  - drupal:migrate
   - migrate_plus

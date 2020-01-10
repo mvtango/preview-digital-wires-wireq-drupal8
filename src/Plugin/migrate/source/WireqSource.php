@@ -16,6 +16,12 @@ use Drupal\migrate_plus\Plugin\migrate\source\Url;
 class WireqSource extends Url {
 
   public function __construct( array $configuration, $plugin_id, $plugin_definition, MigrationInterface $migration ) {
+
+    // TODO: error handling
+    $url = \Drupal::config('dpa_digital_wires.settings')->get('wireq_base_url');
+    $configuration['urls'] = array($url . 'entries.json');
+
     parent::__construct( $configuration, $plugin_id, $plugin_definition, $migration );
   }
+
 }

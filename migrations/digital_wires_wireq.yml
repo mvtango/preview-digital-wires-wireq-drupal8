@@ -1,0 +1,41 @@
+uuid: e972ee9b-3705-4380-9fee-5d2a33e0d531
+langcode: en
+status: true
+dependencies: {  }
+id: digital_wires_wireq
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: dpa
+label: 'Digital Wires Wireq API'
+source:
+  plugin: wireq_source
+  data_fetcher_plugin: http
+  data_parser_plugin: json
+  item_selector: entries
+  ids:
+    entry_id:
+      type: string
+  fields:
+    -
+      name: entry_id
+      selector: entry_id
+    -
+      name: headline
+      selector: headline
+    -
+      name: article_html
+      selector: article_html
+process:
+  type:
+    plugin: default_value
+    default_value: dpa_meldung
+  title: headline
+  body/value: article_html
+  body/format:
+    plugin: default_value
+    default_value: basic_html
+destination:
+  plugin: 'entity:node'
+migration_dependencies: null
