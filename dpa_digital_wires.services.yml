@@ -1,0 +1,6 @@
+services:
+  dpa_digital_wires.migrate_subscriber:
+    class: Drupal\dpa_digital_wires\EventSubscriber\DigitalWiresMigrateSubscriber
+    arguments: []
+    tags:
+      - { name: event_subscriber }
