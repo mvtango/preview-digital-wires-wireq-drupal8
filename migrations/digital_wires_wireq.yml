@@ -27,6 +27,9 @@ source:
     -
       name: article_html
       selector: article_html
+    -
+      name: wireq_receipt
+      selector: _wireq_receipt
 process:
   type:
     plugin: default_value

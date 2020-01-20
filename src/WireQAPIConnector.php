@@ -37,7 +37,7 @@ class WireQAPIConnector {
    */
   public function deleteEntry(string $receipt) {
     // receipt is the json field named '_wireq_receipt'
-    $url = $this->base_url . '/entries/' . $receipt;
-    $response = \Drupal::httpClient()->post($url);
+    $url = $this->base_url . 'entry/' . $receipt;
+    $response = \Drupal::httpClient()->delete($url);
   }
 }

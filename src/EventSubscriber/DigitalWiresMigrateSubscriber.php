@@ -2,6 +2,7 @@
 
 namespace Drupal\dpa_digital_wires\EventSubscriber;
 
+use Drupal\dpa_digital_wires\WireQAPIConnector;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\EventDispatcher\Event;
 
@@ -33,7 +34,12 @@ class DigitalWiresMigrateSubscriber implements EventSubscriberInterface {
    *   The dispatched event.
    */
   public function migratePostRowSave(Event $event) {
-    \Drupal::messenger()->addMessage('Event migrate.post_row_save thrown by Subscriber in module dpa_digital_wires.', 'status', TRUE);
+    // \Drupal::messenger()->addMessage('Event migrate.post_row_save thrown by Subscriber in module dpa_digital_wires.', 'status', TRUE);
+    /** @var \Drupal\Migrate\Row $row */
+    $row = $event->getRow();
+    $source = $row->getSource();
+    $api_connector = new WireQAPIConnector(); // TODO: maybe don't instantiate a connector on every row
+    $api_connector->deleteEntry($source['wireq_receipt']);
   }
 
 }
