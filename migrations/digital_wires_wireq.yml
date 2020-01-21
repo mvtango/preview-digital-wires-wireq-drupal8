@@ -22,14 +22,17 @@ source:
       name: entry_id
       selector: entry_id
     -
+      name: wireq_receipt
+      selector: _wireq_receipt
+    -
       name: headline
       selector: headline
     -
       name: article_html
       selector: article_html
     -
-      name: wireq_receipt
-      selector: _wireq_receipt
+      name: associations
+      selector: associations
 process:
   type:
     plugin: default_value
@@ -39,6 +42,30 @@ process:
   body/format:
     plugin: default_value
     default_value: basic_html
+  field_images:
+    plugin: sub_process
+    source: associations
+    process:
+      target_id:
+        -
+          plugin: extract
+          source: renditions
+          index:
+            - 0
+            - url
+        -
+          plugin: file_import
+        -
+          plugin: skip_on_empty
+          method: process
+        -
+          plugin: extract
+          index:
+            - target_id
+        -
+          plugin: media_generate
+          destination_bundle: image
+          destination_field: field_media_image
 destination:
   plugin: 'entity:node'
 migration_dependencies: null
