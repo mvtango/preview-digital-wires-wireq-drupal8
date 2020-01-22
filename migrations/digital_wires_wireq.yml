@@ -15,12 +15,12 @@ source:
   data_parser_plugin: json
   item_selector: entries
   ids:
-    entry_id:
+    urn:
       type: string
   fields:
     -
-      name: entry_id
-      selector: entry_id
+      name: urn
+      selector: urn
     -
       name: wireq_receipt
       selector: _wireq_receipt
