@@ -60,13 +60,15 @@ class MediaGenerate extends ProcessPluginBase {
     // Grab our metadata.
     $headline = $row->getSourceProperty('headline');
 		$caption = $row->getSourceProperty('caption');
-		$credit = $row->getSourceProperty('credit');
+		$creditline = $row->getSourceProperty('creditline');
 
 		$media = Media::create([
 			'bundle' => $bundle,
 			'uid' => $file->getOwner()->id(),
 			'status' => '1',
 			'name' => $headline,
+			'field_caption' => $caption,
+			'field_creditline' => $creditline,
 			$field => [
 				'target_id' => $file->id(),
 				'alt' => $caption,
