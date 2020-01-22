@@ -7,12 +7,14 @@ dependencies:
     - field.field.node.dpa_meldung.field_byline
     - field.field.node.dpa_meldung.field_copyright_notice
     - field.field.node.dpa_meldung.field_dateline
-    - field.field.node.dpa_meldung.field_dpa_entry_id
+    - field.field.node.dpa_meldung.field_dpa_urn
     - field.field.node.dpa_meldung.field_headline
+    - field.field.node.dpa_meldung.field_images
     - field.field.node.dpa_meldung.field_kicker
     - field.field.node.dpa_meldung.field_teaser
     - node.type.dpa_meldung
   module:
+    - media_library
     - path
     - text
 id: node.dpa_meldung.default
@@ -60,8 +62,8 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_dpa_entry_id:
-    weight: 122
+  field_dpa_urn:
+    weight: 130
     settings:
       size: 60
       placeholder: ''
@@ -75,6 +77,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_images:
+    type: media_library_widget
+    weight: 129
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
     region: content
   field_kicker:
     weight: 123

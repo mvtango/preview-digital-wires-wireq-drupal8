@@ -8,8 +8,9 @@ dependencies:
     - field.field.node.dpa_meldung.field_byline
     - field.field.node.dpa_meldung.field_copyright_notice
     - field.field.node.dpa_meldung.field_dateline
-    - field.field.node.dpa_meldung.field_dpa_entry_id
+    - field.field.node.dpa_meldung.field_dpa_urn
     - field.field.node.dpa_meldung.field_headline
+    - field.field.node.dpa_meldung.field_images
     - field.field.node.dpa_meldung.field_kicker
     - field.field.node.dpa_meldung.field_teaser
     - node.type.dpa_meldung
@@ -28,6 +29,13 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
+  field_images:
+    type: entity_reference_entity_id
+    weight: 9
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
   field_kicker:
     type: string
     weight: 0
@@ -43,15 +51,11 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-  links:
-    weight: 3
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   body: true
   field_byline: true
   field_copyright_notice: true
   field_dateline: true
-  field_dpa_entry_id: true
+  field_dpa_urn: true
   langcode: true
+  links: true

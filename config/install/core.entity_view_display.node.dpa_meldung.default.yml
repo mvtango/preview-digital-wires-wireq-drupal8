@@ -7,8 +7,9 @@ dependencies:
     - field.field.node.dpa_meldung.field_byline
     - field.field.node.dpa_meldung.field_copyright_notice
     - field.field.node.dpa_meldung.field_dateline
-    - field.field.node.dpa_meldung.field_dpa_entry_id
+    - field.field.node.dpa_meldung.field_dpa_urn
     - field.field.node.dpa_meldung.field_headline
+    - field.field.node.dpa_meldung.field_images
     - field.field.node.dpa_meldung.field_kicker
     - field.field.node.dpa_meldung.field_teaser
     - node.type.dpa_meldung
@@ -23,12 +24,12 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 101
+    weight: 7
     settings: {  }
     third_party_settings: {  }
     region: content
   field_byline:
-    weight: 106
+    weight: 4
     label: above
     settings:
       link_to_entity: false
@@ -36,7 +37,7 @@ content:
     type: string
     region: content
   field_copyright_notice:
-    weight: 108
+    weight: 8
     label: above
     settings:
       link_to_entity: false
@@ -44,15 +45,15 @@ content:
     type: string
     region: content
   field_dateline:
-    weight: 107
+    weight: 5
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
-  field_dpa_entry_id:
-    weight: 102
+  field_dpa_urn:
+    weight: 0
     label: above
     settings:
       link_to_entity: false
@@ -60,15 +61,24 @@ content:
     type: string
     region: content
   field_headline:
-    weight: 104
+    weight: 2
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
+  field_images:
+    type: entity_reference_entity_view
+    weight: 6
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
   field_kicker:
-    weight: 103
+    weight: 1
     label: above
     settings:
       link_to_entity: false
@@ -76,16 +86,12 @@ content:
     type: string
     region: content
   field_teaser:
-    weight: 105
+    weight: 3
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
-  links:
-    weight: 100
-    settings: {  }
-    third_party_settings: {  }
-    region: content
 hidden:
   langcode: true
+  links: true

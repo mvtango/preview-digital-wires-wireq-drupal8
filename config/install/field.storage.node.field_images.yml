@@ -1,20 +1,19 @@
-uuid: e82ec54d-d675-4a4d-a04f-d79d3ca22f49
+uuid: 8adb90f2-f9c8-4231-86d2-d93923d2cdf2
 langcode: de
 status: true
 dependencies:
   module:
+    - media
     - node
-id: node.field_dpa_entry_id
-field_name: field_dpa_entry_id
+id: node.field_images
+field_name: field_images
 entity_type: node
-type: string
+type: entity_reference
 settings:
-  max_length: 255
-  is_ascii: false
-  case_sensitive: false
+  target_type: media
 module: core
 locked: false
-cardinality: 1
+cardinality: -1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false
