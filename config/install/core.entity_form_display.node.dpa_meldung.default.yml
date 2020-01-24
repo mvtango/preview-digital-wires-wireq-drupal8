@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.dpa_meldung.body
     - field.field.node.dpa_meldung.field_byline
     - field.field.node.dpa_meldung.field_copyright_notice
+    - field.field.node.dpa_meldung.field_date_created
     - field.field.node.dpa_meldung.field_dateline
     - field.field.node.dpa_meldung.field_dpa_urn
     - field.field.node.dpa_meldung.field_headline
@@ -14,6 +15,7 @@ dependencies:
     - field.field.node.dpa_meldung.field_teaser
     - node.type.dpa_meldung
   module:
+    - datetime
     - media_library
     - path
     - text
@@ -53,6 +55,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_date_created:
+    weight: 131
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
     region: content
   field_dateline:
     weight: 127

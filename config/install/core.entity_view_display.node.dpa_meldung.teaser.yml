@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.dpa_meldung.body
     - field.field.node.dpa_meldung.field_byline
     - field.field.node.dpa_meldung.field_copyright_notice
+    - field.field.node.dpa_meldung.field_date_created
     - field.field.node.dpa_meldung.field_dateline
     - field.field.node.dpa_meldung.field_dpa_urn
     - field.field.node.dpa_meldung.field_headline
@@ -55,6 +56,7 @@ hidden:
   body: true
   field_byline: true
   field_copyright_notice: true
+  field_date_created: true
   field_dateline: true
   field_dpa_urn: true
   langcode: true

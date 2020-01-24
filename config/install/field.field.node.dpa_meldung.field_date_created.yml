@@ -1,0 +1,21 @@
+uuid: b854b9af-b617-42ff-9585-6de738208506
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_date_created
+    - node.type.dpa_meldung
+  module:
+    - datetime
+id: node.dpa_meldung.field_date_created
+field_name: field_date_created
+entity_type: node
+bundle: dpa_meldung
+label: 'Date created'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime
