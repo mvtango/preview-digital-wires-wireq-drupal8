@@ -55,13 +55,12 @@ process:
             - url
         -
           plugin: file_import
+          destination: 'public://dpa_wireq_images/'
+          skip_on_missing_source: TRUE
+          id_only: TRUE
         -
           plugin: skip_on_empty
           method: process
-        -
-          plugin: extract
-          index:
-            - target_id
         -
           plugin: media_generate
           destination_bundle: image
