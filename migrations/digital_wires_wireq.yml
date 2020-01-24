@@ -25,6 +25,12 @@ source:
       name: wireq_receipt
       selector: _wireq_receipt
     -
+      name: created
+      selector: version_created
+    -
+      name: updated
+      selector: updated
+    -
       name: headline
       selector: headline
     -
@@ -37,7 +43,23 @@ process:
   type:
     plugin: default_value
     default_value: dpa_meldung
+  field_dpa_urn: urn
   title: headline
+  created:
+    plugin: format_date_extended
+    source: created
+    from_format: 'Y-m-d\TH:i:se'
+    to_format: U
+  field_date_created:
+    plugin: format_date_extended
+    source: created
+    from_format: 'Y-m-d\TH:i:se'
+    to_format: 'Y-m-d\TH:i:s'
+  changed:
+    plugin: format_date_extended
+    source: updated
+    from_format: 'Y-m-d\TH:i:s\Z'
+    to_format: U
   body/value: article_html
   body/format:
     plugin: default_value
