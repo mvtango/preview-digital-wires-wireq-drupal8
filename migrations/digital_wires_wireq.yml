@@ -34,16 +34,37 @@ source:
       name: headline
       selector: headline
     -
+      name: kicker
+      selector: kicker
+    -
+      name: teaser
+      selector: teaser
+    -
+      name: byline
+      selector: byline
+    -
+      name: dateline
+      selector: dateline
+    -
       name: article_html
       selector: article_html
     -
       name: associations
       selector: associations
+    -
+      name: copyrightnotice
+      selector: copyrightnotice
 process:
+  field_byline: byline
+  field_copyright_notice: copyrightnotice
+  field_dateline: dateline
+  field_dpa_urn: urn
+  field_headline: headline
+  field_kicker: kicker
+  field_teaser: teaser
   type:
     plugin: default_value
     default_value: dpa_meldung
-  field_dpa_urn: urn
   title: headline
   created:
     plugin: format_date_extended
