@@ -22,3 +22,53 @@ function dpa_digital_wires_help($route_name, RouteMatchInterface $route_match) {
     default:
   }
 }
+
+function dpa_digital_wires_migration_plugins_alter(array &$migrations) {
+  $config = \Drupal::config('dpa_digital_wires.settings');
+  //key: "digital_wires_wireq"
+  //structure: exactly the same as in the yml file.
+  $migrations['digital_wires_wireq']['process']['type']['default_value'] = $config->get('content_type');
+
+  $byline = $migrations['digital_wires_wireq']['process']['field_byline'];
+  unset($migrations['digital_wires_wireq']['process']['field_byline']);
+  $copyrightnotice = $migrations['digital_wires_wireq']['process']['field_copyright_notice'];
+  unset($migrations['digital_wires_wireq']['process']['field_copyright_notice']);
+  $dateline = $migrations['digital_wires_wireq']['process']['field_dateline'];
+  unset($migrations['digital_wires_wireq']['process']['field_dateline']);
+  $dpa_urn = $migrations['digital_wires_wireq']['process']['field_dpa_urn'];
+  unset($migrations['digital_wires_wireq']['process']['field_dpa_urn']);
+  $headline = $migrations['digital_wires_wireq']['process']['field_headline'];
+  unset($migrations['digital_wires_wireq']['process']['field_headline']);
+  $kicker = $migrations['digital_wires_wireq']['process']['field_kicker'];
+  unset($migrations['digital_wires_wireq']['process']['field_kicker']);
+  $teaser = $migrations['digital_wires_wireq']['process']['field_teaser'];
+  unset($migrations['digital_wires_wireq']['process']['field_teaser']);
+  $images = $migrations['digital_wires_wireq']['process']['field_images'];
+  unset($migrations['digital_wires_wireq']['process']['field_images']);
+
+  if($config->get('byline_destination') != '__') {
+    $migrations['digital_wires_wireq']['process'][$config->get('byline_destination')] = $byline;
+  }
+  if($config->get('copyrightnotice_destination') != '__') {
+    $migrations['digital_wires_wireq']['process'][$config->get('copyrightnotice_destination')] = $copyrightnotice;
+  }
+  if($config->get('dateline_destination') != '__') {
+    $migrations['digital_wires_wireq']['process'][$config->get('dateline_destination')] = $dateline;
+  }
+  if($config->get('dpaurn_destination') != '__') {
+    $migrations['digital_wires_wireq']['process'][$config->get('dpaurn_destination')] = $dpa_urn;
+  }
+  if($config->get('headline_destination') != '__') {
+    $migrations['digital_wires_wireq']['process'][$config->get('headline_destination')] = $headline;
+  }
+  if($config->get('kicker_destination') != '__') {
+    $migrations['digital_wires_wireq']['process'][$config->get('kicker_destination')] = $kicker;
+  }
+  if($config->get('teaser_destination') != '__') {
+    $migrations['digital_wires_wireq']['process'][$config->get('teaser_destination')] = $teaser;
+  }
+  if($config->get('image_destination') != '__') {
+    $migrations['digital_wires_wireq']['process'][$config->get('image_destination')] = $images;
+  }
+  $migrations['digital_wires_wireq']['process']['body/format']['default_value']=$config->get('body_format');
+}
