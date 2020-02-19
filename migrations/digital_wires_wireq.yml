@@ -13,6 +13,8 @@ source:
   plugin: wireq_source
   data_fetcher_plugin: http
   data_parser_plugin: json
+  high_water_property:
+    name: updated
   item_selector: entries
   ids:
     urn:
