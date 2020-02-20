@@ -33,7 +33,7 @@ class SettingsForm extends ConfigFormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $config = $this->config('dpa_digital_wires.settings');
     $form['wireq_base_url'] = [
-      '#type' => 'textarea',
+      '#type' => 'url',
       '#title' => $this->t('wireQ base-URL'),
       '#description' => $this->t('The base-URL for your wireQ feed, which you can activate in the dpa API-Portal.'),
       '#default_value' => $config->get('wireq_base_url'),

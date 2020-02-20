@@ -18,7 +18,7 @@ class WireqSource extends Url {
 
   public function __construct( array $configuration, $plugin_id, $plugin_definition, MigrationInterface $migration ) {
 
-    // TODO: error handling
+    // TODO: make sure the trailing slash is present
     $url = \Drupal::config('dpa_digital_wires.settings')->get('wireq_base_url');
     $configuration['urls'] = array($url . 'entries.json');
 
