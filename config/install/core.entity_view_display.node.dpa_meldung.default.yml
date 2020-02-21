@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.dpa_meldung.field_headline
     - field.field.node.dpa_meldung.field_images
     - field.field.node.dpa_meldung.field_kicker
+    - field.field.node.dpa_meldung.field_rubrik
     - field.field.node.dpa_meldung.field_teaser
     - node.type.dpa_meldung
   module:
@@ -26,7 +27,7 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 7
+    weight: 8
     settings: {  }
     third_party_settings: {  }
     region: content
@@ -39,7 +40,7 @@ content:
     type: string
     region: content
   field_copyright_notice:
-    weight: 8
+    weight: 9
     label: above
     settings:
       link_to_entity: false
@@ -47,11 +48,11 @@ content:
     type: string
     region: content
   field_date_created:
-    weight: 9
+    weight: 6
     label: above
     settings:
-      format_type: medium
       timezone_override: ''
+      format_type: medium
     third_party_settings: {  }
     type: datetime_default
     region: content
@@ -81,7 +82,7 @@ content:
     region: content
   field_images:
     type: entity_reference_entity_view
-    weight: 6
+    weight: 7
     label: above
     settings:
       view_mode: default
@@ -95,6 +96,14 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
+  field_rubrik:
+    weight: 10
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
     region: content
   field_teaser:
     weight: 3

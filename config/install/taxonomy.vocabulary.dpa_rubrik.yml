@@ -1,0 +1,8 @@
+uuid: c342c45f-062a-4bc7-94e6-01bd6fd76587
+langcode: de
+status: true
+dependencies: {  }
+name: 'DPA Rubrik'
+vid: dpa_rubrik
+description: ''
+weight: 0

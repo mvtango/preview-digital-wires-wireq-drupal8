@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.dpa_meldung.field_headline
     - field.field.node.dpa_meldung.field_images
     - field.field.node.dpa_meldung.field_kicker
+    - field.field.node.dpa_meldung.field_rubrik
     - field.field.node.dpa_meldung.field_teaser
     - node.type.dpa_meldung
   module:
@@ -100,6 +101,16 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_rubrik:
+    weight: 132
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   field_teaser:
     weight: 125

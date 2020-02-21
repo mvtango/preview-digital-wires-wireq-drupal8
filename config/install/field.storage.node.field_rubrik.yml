@@ -1,0 +1,20 @@
+uuid: 76b07f8a-0e5e-4943-be82-2abbb7d3162c
+langcode: de
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_rubrik
+field_name: field_rubrik
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

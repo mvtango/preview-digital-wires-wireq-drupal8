@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.dpa_meldung.field_headline
     - field.field.node.dpa_meldung.field_images
     - field.field.node.dpa_meldung.field_kicker
+    - field.field.node.dpa_meldung.field_rubrik
     - field.field.node.dpa_meldung.field_teaser
     - node.type.dpa_meldung
   module:
@@ -59,5 +60,6 @@ hidden:
   field_date_created: true
   field_dateline: true
   field_dpa_urn: true
+  field_rubrik: true
   langcode: true
   links: true
