@@ -56,6 +56,9 @@ source:
     -
       name: copyrightnotice
       selector: copyrightnotice
+    -
+      name: categories
+      selector: categories
 process:
   field_byline: byline
   field_copyright_notice: copyrightnotice
@@ -110,6 +113,20 @@ process:
           plugin: media_generate
           destination_bundle: image
           destination_field: field_media_image
+  field_rubrik:
+    -
+      plugin: get
+      source: categories
+    -
+      plugin: dpa_filter_categories
+      filter_type: 'dnltype:rubric'
+    -
+      plugin: entity_generate
+      value_key: name
+      bundle_key: vid
+      bundle: dpa_rubrik
+      entity_type: taxonomy_term
+      ignore_case: true
 destination:
   plugin: 'entity:node'
 migration_dependencies: null
