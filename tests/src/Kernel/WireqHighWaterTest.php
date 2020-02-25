@@ -29,6 +29,7 @@ class WireqHighWaterTest extends MigrateTestBase {
 
   protected function setUp() {
     parent::setUp();
+    $this->installConfig('wireq_high_water_test');
 
     $this->installEntitySchema('node');
     $this->installEntitySchema('user');
