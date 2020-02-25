@@ -1,0 +1,9 @@
+type: module
+name: WireQ High Water Test
+description: 'Test for High Water solution for updating existing nodes'
+package: Testing
+core: 8.x
+dependencies:
+  - drupal:migrate
+  - migrate_plus
+

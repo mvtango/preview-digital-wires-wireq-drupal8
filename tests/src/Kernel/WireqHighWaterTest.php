@@ -2,6 +2,8 @@
 
 namespace Drupal\Tests\dpa_digital_wires\Kernel;
 
+use Drupal\migrate\MigrateExecutable;
+use Drupal\migrate\Plugin\MigrationInterface;
 use Drupal\Tests\migrate\Kernel\MigrateTestBase;
 
 /**
@@ -21,7 +23,7 @@ class WireqHighWaterTest extends MigrateTestBase {
     'migrate',
     'migrate_plus',
     'dpa_digital_wires',
-//    'wireq_high_water_test',
+    'wireq_high_water_test',
   ];
 
 
@@ -33,18 +35,33 @@ class WireqHighWaterTest extends MigrateTestBase {
     $this->installSchema('node', 'node_access');
   }
 
+
+  protected function prepareMigration( MigrationInterface $migration ) {
+    $source_config = $migration->getSourceConfiguration();
+    $source_config['data_fetcher_plugin'] = 'file';
+    $source_config['plugin'] = 'wireq_test_source';
+    $migration->set('source', $source_config);
+  }
+
+
   public function testHighWater() {
+    $migration = $this->getMigration('digital_wires_wireq');
+    $source_config = $migration->getSourceConfiguration();
     $module_path = drupal_get_path('module', 'wireq_high_water_test');
+
     $file_source = $module_path . '/data/highwater_newest_first.json';
+    $source_config['urls'] = $file_source;
 
-    $config = \Drupal::configFactory()->getEditable('dpa_digital_wires.settings');
-    $config->set('wireq_base_url', $file_source);
-    $config->save();
-
-    $this->executeMigration('digital_wires_wireq');
+    $migration->set('source', $source_config);
+    $this->executeMigration($migration);
     $this->assertTrue($this->nodeExists('Berlinale: Konfrontation mit der Vergangenheit - Version 2'));
+    (new MigrateExecutable($migration))->rollback();
+    $this->assertFalse($this->nodeExists('Berlinale: Konfrontation mit der Vergangenheit - Version 2'));
 
-    //    $file_source = $module_path . '/data/highwater_newest_last.json';
+    $file_source = $module_path . '/data/highwater_newest_last.json';
+    $source_config['urls'] = $file_source;
+    $this->executeMigration($migration);
+    $this->assertTrue($this->nodeExists('Berlinale: Konfrontation mit der Vergangenheit - Version 2'));
   }
 
 
