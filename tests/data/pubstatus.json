@@ -1,0 +1,108 @@
+{
+  "entries": [
+    {
+      "format": "digitalwires@0.5.13",
+      "entry_id": "fY5ZuN6tqjky1SUeIY1jW8qqOVRE08XEdyN2vsGOCc",
+      "updated": "2020-02-25T14:47:07Z",
+      "urn": "urn:newsml:dpa.com:20090101:200225-99-67352",
+      "version_created": "2020-02-25T15:45:36+01:00",
+      "version": 1,
+      "pubstatus": "usable",
+      "embargoed": null,
+      "language": "de",
+      "urgency": 4,
+      "kicker": "Ursprung, Bedeutung, Rituale",
+      "headline": "Artikel: usable",
+      "subhead": null,
+      "teaser": "Halloween ist der Tag zum Gruseln. Warum feiern wir das Fest? Alle wichtigen Infos rund ums Fest erfahren Sie hier.",
+      "byline": null,
+      "dateline": null,
+      "article_html": "<section class=\"main\"><p>Eine zur\u00fcckgezogene Testmeldung</p></section>",
+      "infobox_html": null,
+      "linkbox_html": null,
+      "creditline": "dpa",
+      "copyrightnotice": "Copyright 2020, dpa (www.dpa.de). Alle Rechte vorbehalten",
+      "associations": [
+      ],
+      "categories": [
+      ],
+      "current_rubric_names": [
+        "weblines.labline.test2"
+      ],
+      "rubric_names": [
+        "weblines.labline.test2"
+      ],
+      "dpasubject_names": [
+        "Buntes"
+      ],
+      "geosubject_names": [
+        "Deutschland"
+      ],
+      "keyword_names": [
+        "Halloween",
+        "Halloween 2019",
+        "Halloween Datum",
+        "Gruselfest"
+      ],
+      "desk_names": [
+        "vm"
+      ],
+      "genre_names": [
+        "Meldung"
+      ],
+      "poi_names": [],
+      "scope_names": []
+    },
+    {
+      "format": "digitalwires@0.5.13",
+      "entry_id": "akkRDccvfSOKezVRRdWkUJwy3TZz4YNT3gPIR8zk",
+      "updated": "2020-02-25T14:51:42Z",
+      "urn": "urn:newsml:dpa.com:20090101:200225-99-67352",
+      "version_created": "2020-02-25T15:49:21+01:00",
+      "version": 3,
+      "pubstatus": "canceled",
+      "embargoed": null,
+      "language": "de",
+      "urgency": 2,
+      "kicker": "Ursprung, Bedeutung, Rituale",
+      "headline": "Artikel: canceled",
+      "subhead": null,
+      "teaser": "Halloween ist der Tag zum Gruseln. Warum feiern wir das Fest? Alle wichtigen Infos rund ums Fest erfahren Sie hier.",
+      "byline": null,
+      "dateline": null,
+      "article_html": "<section class=\"main\"><p>Eine zurückgezogene Testmeldung</p></section>",
+      "infobox_html": null,
+      "linkbox_html": null,
+      "creditline": "dpa",
+      "copyrightnotice": "Copyright 2020, dpa (www.dpa.de). Alle Rechte vorbehalten",
+      "associations": [
+      ],
+      "categories": [
+      ],
+      "current_rubric_names": [],
+      "rubric_names": [
+        "weblines.labline.test2"
+      ],
+      "dpasubject_names": [
+        "Buntes"
+      ],
+      "geosubject_names": [
+        "Deutschland"
+      ],
+      "keyword_names": [
+        "Halloween",
+        "Halloween 2019",
+        "Halloween Datum",
+        "Gruselfest"
+      ],
+      "desk_names": [
+        "vm"
+      ],
+      "genre_names": [
+        "Meldung"
+      ],
+      "poi_names": [],
+      "scope_names": []
+    }
+  ]
+}

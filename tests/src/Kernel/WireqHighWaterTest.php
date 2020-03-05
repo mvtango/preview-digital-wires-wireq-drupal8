@@ -7,6 +7,7 @@ use Drupal\migrate\MigrateExecutable;
 /**
  * Class WireqHighWaterTest
  * @package Drupal\Tests\dpa_digital_wires\Kernel
+ * @group dpa_digital_wires
  */
 class WireqHighWaterTest extends WireqTestBase {
 
