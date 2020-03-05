@@ -58,6 +58,19 @@ class SettingsForm extends ConfigFormBase {
       '#description'=> $this->t('Select the content type new articles should be created in.'),
       '#options' => $options,
       '#default_value'=>$default,
+      '#attributes' => [
+        'name'=>'selected_content_type'
+      ]
+    ];
+
+    $form['content_type_switch'] = [
+      '#type'=>'item',
+      '#description'=>'Notice: when changing the content type, submit the form and configure the fields afterwards.',
+      '#states'=>[
+        'invisible'=>[
+          ':input[name="selected_content_type"]'=>['value'=>$default]
+        ]
+      ]
     ];
 
     /** @var \Drupal\Core\Entity\EntityFieldManager $fieldManager */
@@ -78,6 +91,11 @@ class SettingsForm extends ConfigFormBase {
       '#description'=>$this->t('This field will contain the imported articles byline'),
       '#options'=>$options,
       '#default_value'=>$config->get('byline_destination'),
+      '#states'=>[
+        'visible'=> [
+          ':input[name="selected_content_type"]'=>['value'=>$default]
+        ]
+      ]
     ];
 
     $options = ['__'=>'Ignore'];
@@ -92,6 +110,11 @@ class SettingsForm extends ConfigFormBase {
       '#description'=>$this->t('This field will contain the imported articles copyright notice'),
       '#options'=>$options,
       '#default_value'=>$config->get('copyrightnotice_destination'),
+      '#states'=>[
+        'visible'=> [
+          ':input[name="selected_content_type"]'=>['value'=>$default]
+        ]
+      ]
     ];
 
     $options = ['__'=>'Ignore'];
@@ -106,6 +129,11 @@ class SettingsForm extends ConfigFormBase {
       '#description'=>$this->t('This field will contain the imported articles dateline'),
       '#options'=>$options,
       '#default_value'=>$config->get('dateline_destination'),
+      '#states'=>[
+        'visible'=> [
+          ':input[name="selected_content_type"]'=>['value'=>$default]
+        ]
+      ]
     ];
 
     $options = ['__'=>'Ignore'];
@@ -120,6 +148,11 @@ class SettingsForm extends ConfigFormBase {
       '#description'=>$this->t('This field will contain the imported articles URN'),
       '#options'=>$options,
       '#default_value'=>$config->get('dpaurn_destination'),
+      '#states'=>[
+        'visible'=> [
+          ':input[name="selected_content_type"]'=>['value'=>$default]
+        ]
+      ]
     ];
 
 
@@ -135,6 +168,11 @@ class SettingsForm extends ConfigFormBase {
       '#description'=>$this->t('This field will contain the imported articles headline'),
       '#options'=>$options,
       '#default_value'=>$config->get('headline_destination'),
+      '#states'=>[
+        'visible'=> [
+          ':input[name="selected_content_type"]'=>['value'=>$default]
+        ]
+      ]
     ];
 
     $options = ['__'=>'Ignore'];
@@ -149,6 +187,11 @@ class SettingsForm extends ConfigFormBase {
       '#description'=>$this->t('This field will contain the imported articles kicker'),
       '#options'=>$options,
       '#default_value'=>$config->get('kicker_destination'),
+      '#states'=>[
+        'visible'=> [
+          ':input[name="selected_content_type"]'=>['value'=>$default]
+        ]
+      ]
     ];
 
     $options = ['__'=>'Ignore'];
@@ -163,6 +206,11 @@ class SettingsForm extends ConfigFormBase {
       '#description'=>$this->t('This field will contain the imported articles teaser'),
       '#options'=>$options,
       '#default_value'=>$config->get('teaser_destination'),
+      '#states'=>[
+        'visible'=> [
+          ':input[name="selected_content_type"]'=>['value'=>$default]
+        ]
+      ]
     ];
 
     $options = ['__'=>'Ignore'];
@@ -180,6 +228,11 @@ class SettingsForm extends ConfigFormBase {
       '#description'=>$this->t('This field will contain the imported articles images. Will generate image media entities and referene those'),
       '#options'=>$options,
       '#default_value'=>$config->get('image_destination'),
+      '#states'=>[
+        'visible'=> [
+          ':input[name="selected_content_type"]'=>['value'=>$default]
+        ]
+      ]
     ];
 
     $formats = filter_formats();
