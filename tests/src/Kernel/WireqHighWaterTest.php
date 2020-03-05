@@ -14,9 +14,9 @@ class WireqHighWaterTest extends WireqTestBase {
   public function testHighWater() {
     $migration = $this->getMigration( 'digital_wires_wireq' );
     $source_config = $migration->getSourceConfiguration();
-    $module_path = drupal_get_path( 'module', 'wireq_high_water_test' );
+    $module_path = drupal_get_path( 'module', 'dpa_digital_wires' );
 
-    $file_source = $module_path . '/data/highwater_newest_first.json';
+    $file_source = $module_path . '/tests/data/highwater_newest_first.json';
     $source_config['urls'] = $file_source;
 
     $migration->set( 'source', $source_config );
