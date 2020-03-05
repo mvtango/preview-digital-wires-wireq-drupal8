@@ -6,3 +6,12 @@ package: 'dpa'
 dependencies:
   - drupal:migrate
   - migrate_plus
+  - image
+  - path
+  - datetime
+  - media_library
+  - text
+  - node
+  - taxonomy
+  - menu_ui
+  - language
