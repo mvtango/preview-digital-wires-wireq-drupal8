@@ -21,10 +21,12 @@ class FilterCategories extends ProcessPluginBase {
    */
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
     $return = [];
-    foreach($value as $element) {
-      $type=$this->configuration['filter_type'];
-      if($element['type']==$type) {
-        $return[] = $element['name'];
+    if ($value) {
+      foreach ( $value as $element ) {
+        $type = $this->configuration['filter_type'];
+        if ( $element['type'] == $type ) {
+          $return[] = $element['name'];
+        }
       }
     }
     return $return;
