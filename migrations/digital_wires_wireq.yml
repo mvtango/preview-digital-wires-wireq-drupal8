@@ -27,6 +27,9 @@ source:
       name: wireq_receipt
       selector: _wireq_receipt
     -
+      name: pubstatus
+      selector: pubstatus
+    -
       name: created
       selector: version_created
     -
@@ -60,32 +63,39 @@ source:
       name: categories
       selector: categories
 process:
+  title: headline
+  status:
+    -
+      plugin: static_map
+      source: pubstatus
+      map:
+        canceled: 0
+        usable: 1
+  type:
+    plugin: default_value
+    default_value: dpa_meldung
+  created:
+    plugin: format_date_extended
+    source: created
+    from_format: 'Y-m-d\TH:i:se'
+    to_format: U
+  changed:
+    plugin: format_date_extended
+    source: updated
+    from_format: 'Y-m-d\TH:i:s\Z'
+    to_format: U
   field_byline: byline
+  field_date_created:
+    plugin: format_date_extended
+    source: created
+    from_format: 'Y-m-d\TH:i:se'
+    to_format: 'Y-m-d\TH:i:s'
   field_copyright_notice: copyrightnotice
   field_dateline: dateline
   field_dpa_urn: urn
   field_headline: headline
   field_kicker: kicker
   field_teaser: teaser
-  type:
-    plugin: default_value
-    default_value: dpa_meldung
-  title: headline
-  created:
-    plugin: format_date_extended
-    source: created
-    from_format: 'Y-m-d\TH:i:se'
-    to_format: U
-  field_date_created:
-    plugin: format_date_extended
-    source: created
-    from_format: 'Y-m-d\TH:i:se'
-    to_format: 'Y-m-d\TH:i:s'
-  changed:
-    plugin: format_date_extended
-    source: updated
-    from_format: 'Y-m-d\TH:i:s\Z'
-    to_format: U
   body/value: article_html
   body/format:
     plugin: default_value
