@@ -31,8 +31,9 @@ class LoadTest extends BrowserTestBase {
    */
   protected function setUp() {
     parent::setUp();
-    $this->user = $this->drupalCreateUser(['administer site configuration']);
-    $this->drupalLogin($this->user);
+    //we don't need a user in this test scenario.
+    /*$this->user = $this->drupalCreateUser(['administer site configuration']);
+    $this->drupalLogin($this->user);*/
   }
 
   /**
