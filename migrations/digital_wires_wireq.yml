@@ -63,7 +63,19 @@ source:
       name: categories
       selector: categories
 process:
-  title: headline
+  _title_prefix:
+    -
+      plugin: static_map
+      source: pubstatus
+      map:
+        canceled: 'ACHTUNG! Zurückgezogen! - '
+      default_value: ''
+  title:
+    -
+      plugin: concat
+      source:
+        - '@_title_prefix'
+        - headline
   status:
     -
       plugin: static_map

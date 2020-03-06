@@ -22,7 +22,7 @@ class WireqWithdrawArticleTest extends WireqTestBase {
 
     $migration->set( 'source', $source_config );
     $this->executeMigration( $migration );
-    $this->assertTrue( $this->nodeExists( 'Artikel: canceled' ) );
+    $this->assertTrue( $this->nodeExists( 'ACHTUNG! Zurückgezogen! - Artikel: canceled' ) );
   }
 
 }
