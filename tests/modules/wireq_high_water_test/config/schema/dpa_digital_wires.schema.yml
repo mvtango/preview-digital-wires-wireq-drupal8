@@ -2,6 +2,39 @@ dpa_digital_wires.settings:
   type: config_object
   label: 'Configuration for the dpa Digital Wires module'
   mapping:
+    wireq_base_url:
+      type: string
+      label: 'wireQ base-URL'
+    publishing_status:
+      type: string
+      label: 'Publishing status'
     content_type:
       type: string
       label: 'Content Type'
+    byline_destination:
+      type: string
+      label: 'Byline field'
+    copyrightnotice_destination:
+      type: string
+      label: 'Copyright notice field'
+    dateline_destination:
+      type: string
+      label: 'Dateline field'
+    dpaurn_destination:
+      type: string
+      label: 'DPA URN field'
+    headline_destination:
+      type: string
+      label: 'Headline field'
+    kicker_destination:
+      type: string
+      label: 'Kicker field'
+    teaser_destination:
+      type: string
+      label: 'Teaser field'
+    image_destination:
+      type: string
+      label: 'Image field'
+    body_format:
+      type: string
+      label: 'Body field format'

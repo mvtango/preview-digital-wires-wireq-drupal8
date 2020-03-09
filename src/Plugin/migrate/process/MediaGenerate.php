@@ -61,24 +61,35 @@ class MediaGenerate extends ProcessPluginBase {
     $headline = $row->getSourceProperty('headline');
 		$caption = $row->getSourceProperty('caption');
 		$creditline = $row->getSourceProperty('creditline');
+		$urn = $row->getSourceProperty('urn');
+		$version = $row->getSourceProperty('version');
 
-		$media = Media::create([
-			'bundle' => $bundle,
-			'uid' => $file->getOwner()->id(),
-			'status' => '1',
-			'name' => $headline,
-			'field_caption' => $caption,
-			'field_creditline' => $creditline,
-			$field => [
-				'target_id' => $file->id(),
-				'alt' => $caption,
-			],
-		]);
-		$media->save();
+		$query = db_select('dpa_digital_wires_attachments_lookup','lu');
+		$query->condition('urn',$urn)->condition('version',$version);
+		$query->fields('lu',['media_entity']);
+		$results=$query->execute()->fetchAssoc();
+		if(!isset($results['media_entity'])) {
+      $media = Media::create([
+        'bundle' => $bundle,
+        'uid' => $file->getOwner()->id(),
+        'status' => '1',
+        'name' => $headline,
+        'field_caption' => $caption,
+        'field_creditline' => $creditline,
+        $field => [
+          'target_id' => $file->id(),
+          'alt' => $caption,
+        ],
+      ]);
+      $media->save();
+      // @todo uncomment this on the final migration: file_delete($file->id());
+      db_insert('dpa_digital_wires_attachments_lookup')->fields(['media_entity'=>$media->id(),'urn'=>$urn,'version'=>$version])->execute();
+    }
 
-    // @todo uncomment this on the final migration: file_delete($file->id());
 
-		return $media->id();
+
+
+		return $results['media_entity'];
 	}
 
 }

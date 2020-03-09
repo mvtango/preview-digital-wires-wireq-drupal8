@@ -1,0 +1,23 @@
+<?php
+
+function dpa_digital_wires_schema() {
+  return [
+    'dpa_digital_wires_attachments_lookup'=>[
+      'description'=>'provides lookups for media entities',
+      'fields'=>[
+        'media_entity'=>[
+          'type'=>'int',
+          'not null'=>true,
+        ],
+        'urn'=>[
+          'type'=>'text',
+          'not null'=>true,
+        ],
+        'version'=>[
+          'type'=>'int',
+          'not null'=>true,
+        ]
+      ]
+    ]
+  ];
+}

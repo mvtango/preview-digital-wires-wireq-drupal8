@@ -20,21 +20,44 @@ class WireqTestBase extends MigrateTestBase {
     'system',
     'user',
     'node',
+    'file',
     'field',
+    'image',
+    'media',
     'migrate',
     'migrate_plus',
+    'migrate_file',
     'dpa_digital_wires',
     'wireq_high_water_test',
+    'path',
+    'datetime',
+    'media_library',
+    'text',
+    'taxonomy',
+    'menu_ui',
+    'language',
+    'views',
   ];
 
 
   protected function setUp() {
     parent::setUp();
+    $this->installConfig('system');
     $this->installConfig('wireq_high_water_test');
-
+    $this->installConfig('media');
+    $this->installConfig('media_library');
+    $this->installConfig('node');
+    $this->installConfig('field');
+    $this->installConfig('views');
+    $this->installConfig('user');
     $this->installEntitySchema('node');
+    $this->installEntitySchema('file');
+    $this->installEntitySchema('media');
     $this->installEntitySchema('user');
+    $this->installEntitySchema('path_alias');
     $this->installSchema('node', 'node_access');
+    $this->installSchema('file','file_usage');
+    $this->installSchema('dpa_digital_wires','dpa_digital_wires_attachments_lookup');
   }
 
 
