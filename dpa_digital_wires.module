@@ -28,6 +28,12 @@ function dpa_digital_wires_migration_plugins_alter(array &$migrations) {
   //key: "digital_wires_wireq"
   //structure: exactly the same as in the yml file.
   $migrations['digital_wires_wireq']['process']['type']['default_value'] = $config->get('content_type');
+  $publish = $config->get('publishing_status');
+  if($publish == 'Draft') {
+    $migrations['digital_wires_wireq']['process']['status'][0]['map']['usable'] = 0;
+  } else {
+    $migrations['digital_wires_wireq']['process']['status'][0]['map']['usable'] = 1;
+  }
 
   $byline = $migrations['digital_wires_wireq']['process']['field_byline'];
   unset($migrations['digital_wires_wireq']['process']['field_byline']);
