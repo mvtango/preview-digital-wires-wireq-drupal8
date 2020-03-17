@@ -29,7 +29,7 @@ Nach erfolgreichem Import eines Eintrages quittiert das Modul das _WireQ Receipt
 
 Grundsätzlich werden alle Meldungen der WireQ importiert, bis diese leer ist. Dazu muss die Migration mehrmals aufgerufen werden, am besten regelmäßig per Cron.
 
-Bilder die an den Meldungen als Attachments hängen, werden ebenfalls importiert. Diese Bilder finden sich anschließend in der _Drupal 8 Media Library_ wieder. Beim Import der Bilder wird überprüft, ob ein Bild mit einer identischen dpa-ID bereits vorhanden ist, so dass durch den Import keine doppelten Bilder die Media Library überfluten.
+Bilder die an den Meldungen als Attachments hängen, werden ebenfalls importiert. Diese Bilder finden sich anschließend in der _Drupal 8 Media Library_ wieder. Beim Import der Bilder wird überprüft, ob ein Bild mit einer identischen dpa-ID und Version bereits vorhanden ist, so dass durch den Import keine doppelten Bilder die Media Library überfluten.
 
 
 ### Sonderfall: Zurückgezogene Meldung
@@ -58,7 +58,7 @@ Das Modul bringt einen eigenen Inhaltstyp _dpa Meldung_ mit. Dadurch ist das Mod
 Hier empfiehlt es sich, die Migration per Cron auf dem Web-Server regelmäßig laufen zu lassen. Dazu würde man die Migration im Cron in der gewünschten Frequenz laufen lassen.
 
 ```cron
-5 * * * * ~/drupal/docroot/vendor/bin/drush migrate:import dpa_digital_wires
+*/5 * * * * ~/drupal/docroot/vendor/bin/drush migrate:import dpa_digital_wires
 ```
 
 
