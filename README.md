@@ -57,17 +57,34 @@ Das Modul bringt einen eigenen Inhaltstyp _dpa Meldung_ mit. Dadurch ist das Mod
 
 Hier empfiehlt es sich, die Migration per Cron auf dem Web-Server regelmäßig laufen zu lassen. Dazu würde man die Migration im Cron in der gewünschten Frequenz laufen lassen.
 
-```cron
+```shell
 */5 * * * * ~/drupal/docroot/vendor/bin/drush migrate:import dpa_digital_wires
 ```
 
+Treten Fehler in der Migration auf, so lassen sich diese mit dem von Migrate bekannten Befehl abfragen:
+
+```shell
+$ drush migrate:messages digital_wires_wireq
+```
+
+Die Status-Abfrage durch Migrate ist durch den Aufbau der WireQ API als Processing Queue nicht so aussagekräftig wie sonst,
+sofern sie über einen Cron ausgeführt wird, da sie sich immer nur auf den zuletzt importierten Batch aus 50 Meldungen bezieht:
+
+```shell
+$ drush migrate:status digital_wires_wireq
+ ----------- --------------------- -------- ------- ---------- ------------- ---------------------
+  Group       Migration ID          Status   Total   Imported   Unprocessed   Last Imported
+ ----------- --------------------- -------- ------- ---------- ------------- ---------------------
+  dpa (dpa)   digital_wires_wireq   Idle     50      46         4             2020-03-17 06:57:35
+ ----------- --------------------- -------- ------- ---------- ------------- ---------------------
+```
 
 
 ### Tests
 
 Die Tests werden über PhpUnit gestartet. Diese werden im Ordner `core` von Drupal ausgeführt.
 
-```bash
+```shell script
 $ cd docroot/core
 $ ../../vendor/bin/phpunit --group dpa_digital_wires
 ```
