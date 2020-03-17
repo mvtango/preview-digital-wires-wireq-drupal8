@@ -4,6 +4,8 @@
 namespace Drupal\Tests\dpa_digital_wires\Kernel;
 
 
+use Drupal\Core\DependencyInjection\ServiceModifierInterface;
+use Drupal\Core\DependencyInjection\ContainerBuilder;
 use Drupal\migrate\Plugin\MigrationInterface;
 use Drupal\Tests\migrate\Kernel\MigrateTestBase;
 
@@ -11,8 +13,19 @@ use Drupal\Tests\migrate\Kernel\MigrateTestBase;
  * Class WireqTestBase
  * @package Drupal\Tests\dpa_digital_wires\Kernel
  */
-class WireqTestBase extends MigrateTestBase {
+class WireqTestBase extends MigrateTestBase implements ServiceModifierInterface {
 
+  /*
+   * By default, Drupal does not allow http requests in kernel tests.
+   * Via the ServiceModifierInterface it is possible to remove the middleware used in tests
+   * which prevents the http requests from being made.
+   * see https://www.drupal.org/project/drupal/issues/2571475 for more details
+   */
+  public function alter(ContainerBuilder $container) {
+    $container->removeDefinition('test.http_client.middleware');
+  }
+
+  
   /**
    * {@inheritdoc}
    */
