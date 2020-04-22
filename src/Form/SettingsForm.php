@@ -43,7 +43,7 @@ class SettingsForm extends ConfigFormBase {
       '#title' => $this->t('Publishing status'),
       '#description' => $this->t('Select wether new articles should be published automatically.'),
       '#options' => ['Draft' => $this->t('Draft'), 'Published' => $this->t('Published')],
-      '#default_value' => 'Draft',
+      '#default_value' => $config->get('publishing_status'),
     ];
     $storage = \Drupal::entityTypeManager()->getStorage('node_type');
     $types = $storage->loadMultiple();
@@ -51,7 +51,7 @@ class SettingsForm extends ConfigFormBase {
     foreach($types as $type) {
       $options[$type->id()] = $type->label();
     };
-    $default = $this->config('dpa_digital_wires.settings')->get('content_type');
+    $default = $config->get('content_type');
     $form['content_type'] = [
       '#type' => 'radios',
       '#title' => $this->t('Content Type'),
