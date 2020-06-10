@@ -13,7 +13,7 @@ source:
   plugin: wireq_source
   track_changes: true
   data_fetcher_plugin: http
-  data_parser_plugin: json
+  data_parser_plugin: wireq
   item_selector: entries
   ids:
     urn:
