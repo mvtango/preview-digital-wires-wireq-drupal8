@@ -29,7 +29,7 @@ class Wireq extends Json {
       do {
         $data = parent::getSourceData($url);
         if(count($data)>0) {
-          array_push($this->data,$data);
+          $this->data = array_merge($this->data,$data);
         }
       }while(count($data)>0);
     }
