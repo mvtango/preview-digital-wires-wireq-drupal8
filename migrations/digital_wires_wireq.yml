@@ -11,10 +11,9 @@ migration_group: dpa
 label: 'Digital Wires Wireq API'
 source:
   plugin: wireq_source
+  track_changes: true
   data_fetcher_plugin: http
   data_parser_plugin: json
-  high_water_property:
-    name: updated
   item_selector: entries
   ids:
     urn:
